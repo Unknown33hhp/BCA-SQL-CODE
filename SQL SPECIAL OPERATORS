@@ -1,0 +1,87 @@
+PROGRAM:
+-------------Create Table
+
+SQL> CREATE TABLE Products (ProductID Number(5)  PRIMARY KEY,ProductName VARCHAR(50),Price DECIMAL(8, 2),Category VARCHAR(50) );
+
+----------------Table created.
+
+--------Insert Data into Table
+SQL> INSERT INTO Products (ProductID, ProductName, Price, Category)VALUES (1, 'Laptop', 1200.00, 'Electronics') ;
+
+---------------------- 1 row created.
+
+SQL> INSERT INTO Products (ProductID, ProductName, Price, Category)  VALUES(2, 'Smartphone', 800.00, 'Electronics') ; 
+                                   
+------------- 1 row created.
+
+SQL> INSERT INTO Products (ProductID, ProductName, Price, Category) VALUES(3, 'Desk Chair', 150.00, 'Furniture'); 
+
+-------------------1 row created.
+
+SQL> INSERT INTO Products (ProductID, ProductName, Price, Category) VALUES	(4, 'Coffee Table', 200.00, 'Furniture');
+
+-------------------- 1 row created.
+
+SQL> INSERT INTO Products (ProductID, ProductName, Price, Category) VALUES	(5, 'Running Shoes', 80.00, 'Apparel'); 
+                                         -----
+---------------------------------1 row created.
+
+-- SELECT using LIKE operator
+
+SQL> SELECT * FROM Products WHERE ProductName LIKE 'Desk%';
+------------------------------------------------------------------
+PRODUCTID	PRODUCTNAME	PRICE	CATEGORY
+3	Desk Chair	150	Furniture
+
+
+-----------------------------------------------------------------
+ 
+-----SELECT using IN operator
+
+SQL> SELECT * FROM Products WHERE Category IN ('Electronics', 'Furniture');
+-------------------------------------------------------------------
+PRODUCTID	PRODUCTNAME	PRICE	CATEGORY
+1	Laptop	1200	Electronics
+2	Smartphone	800	Electronics
+3	Desk Chair	150	Furniture
+4	Coffee Table	200	Furniture
+--------------------------------------------------------------------
+
+
+------------------- SELECT using BETWEEN operator
+
+SQL> SELECT * FROM Products WHERE Price BETWEEN 100.00 AND 500.00;
+--------------------------------------------------------------------
+PRODUCTID	PRODUCTNAME	PRICE	CATEGORY
+3	Desk Chair	150	Furniture
+4	Coffee Table	200	Furniture
+---------------------------------------------------------------
+
+
+-- ------------SELECT using IS NULL operator
+SQL> SELECT * FROM Products WHERE Category IS NULL;
+------ -------------no rows selected
+
+--------------------- SELECT with ORDER BY
+SQL> SELECT * FROM Products  ORDER BY Price DESC;
+---------------------------------------------------
+PRODUCTID	PRODUCTNAME	PRICE	CATEGORY
+1	Laptop	1200	Electronics
+2	Smartphone	800	Electronics
+3	Desk Chair	150	Furniture
+4	Coffee Table	200	Furniture
+5	Running Shoes	80	Apparel 
+----------------------------------------------
+
+-------
+
+
+
+
+
+
+
+
+Result: 
+	Sql Special operators were executed successfully.
+ 
