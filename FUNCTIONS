@@ -1,0 +1,78 @@
+PROGRAM:
+
+-- CREATE TABLE
+SQL>	CREATE TABLE Employees ( EmployeeID Number(15)  PRIMARY KEY, FirstName VARCHAR(50),	LastName VARCHAR(50),	Salary DECIMAL(10, 2));
+
+-------------Table created.
+
+-- INSERT INTO
+SQL> INSERT INTO Employees (EmployeeID, FirstName, LastName, Salary) VALUES(1, 'John', 'Doe', 50000.50);
+
+-------------1 row created.
+
+SQL> INSERT INTO Employees (EmployeeID, FirstName, LastName, Salary) VALUES(2, 'Jane', 'Smith', 60000.75);
+
+---------------1 row created.
+
+SQL> INSERT INTO Employees (EmployeeID, FirstName, LastName, Salary)VALUES(3, 'Bob', 'Johnson', 75000.25);
+
+----------------------1 row created.
+
+SQL> INSERT INTO Employees (EmployeeID, FirstName, LastName, Salary)  VALUES(4, 'Sam', 'John', 90000.25);
+
+-------------------1 row created.
+
+
+-- SELECT with mathematical functions
+SQL> SELECT	ROUND(Salary, 1) AS RoundedSalary, ABS(Salary) AS AbsoluteSalary FROM Employees;
+--------------------------------------------
+ROUNDEDSALARY	ABSOLUTESALARY
+
+50000.5	50000.5
+60000.7	60000.75
+75000.2	75000.25
+90000.2	90000.25
+ 
+-- SELECT with custom function using CASE
+SQL> SELECT  FirstName,  LastName,  Salary, CASE WHEN Salary < 60000 THEN 'Low'  WHEN Salary >= 60000 AND Salary < 80000  THEN 'Medium'   ELSE 'High'  END AS SalaryCategory FROM Employees;
+------------------------
+FIRSTNAME	LASTNAME	SALARY	SALARY
+-------------------	--------------------- ----------	------
+John	Doe	50000.5	Low
+Jane	Smith	60000.75	Medium
+Bob	Johnson	75000.25	Medium
+Sam	John	90000.25	High
+			
+--------User Defined functions:
+
+DECLARE 
+   a number; 
+   b number; 
+   c number; 
+FUNCTION findMax(x IN number, y IN number)  
+RETURN number 
+IS 
+    z number; 
+BEGIN 
+   IF x > y THEN 
+      z:= x; 
+   ELSE 
+      Z:= y; 
+   END IF;  
+   RETURN z; 
+END; 
+BEGIN 
+   a:= 23; 
+   b:= 45;  
+   c := findMax(a, b); 
+   dbms_output.put_line(' Maximum of (23,45): ' || c); 
+END; 
+/
+Output:
+	Maximum of (23,45): 45   
+
+PL/SQL procedure successfully completed.
+
+Result:
+
+	The function was executed successfully in SQL. 
