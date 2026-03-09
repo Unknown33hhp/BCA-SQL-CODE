@@ -1,0 +1,38 @@
+PROGRAM:
+-------------------Create Table
+
+SQL> CREATE TABLE EMPLOYEE ( EmployeeID Number(15) PRIMARY KEY,FirstName VARCHAR(50), LastName VARCHAR(50), Department VARCHAR(50), Salary DECIMAL(10, 2) );
+
+---------------------Table created.
+
+---------------------------Insert Data into Table
+SQL> INSERT INTO EMPLOYEE (EmployeeID, FirstName, LastName, Department, Salary) VALUES (1, 'John', 'Doe', 'HR', 50000.00);
+
+--------------------1 row created.
+
+SQL> INSERT INTO EMPLOYEE (EmployeeID, FirstName, LastName, Department, Salary)VALUES	(2, 'Jane', 'Smith', 'IT', 60000.00);
+
+----------------------------------1 row created.
+
+SQL> INSERT INTO EMPLOYEE (EmployeeID, FirstName, LastName, Department, Salary)VALUES	(3, 'Bob', 'Johnson', 'Finance', 75000.00);
+
+-----------------------------------1 row created.
+
+------------------------------Sequence command
+SQL> CREATE SEQUENCE emp_sequence START WITH 1001	INCREMENT BY 1 NOCACHE	NOCYCLE;
+
+--------------------Sequence created.
+
+SQL> INSERT INTO EMPLOYEE (EmployeeID, FirstName, LastName, Department, Salary) VALUES	(emp_sequence.NEXTVAL, 'Alice', 'Williams', 'Marketing', 55000.00);
+
+-----------------------------------------1 row created.
+
+SQL> CREATE VIEW EmployeeSummary AS SELECT EmployeeID, FirstName, LastName, Department, Salary FROM EMPLOYEE WHERE Salary > 60000.00;
+
+----------------------------------------View created.
+ 
+SQL> SELECT * FROM EmployeeSummary;
+---------------------------------------
+EMPLOYEEID	FIRSTNAME	LASTNAME	DEPARTMENT	SALARY
+3	Bob	Johnson	Finance	75000
+--------------------------
