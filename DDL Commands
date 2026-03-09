@@ -1,0 +1,46 @@
+PROGRAM:
+-------------Create Table
+SQL> CREATE TABLE Employees (EmployeeID Number(10)  PRIMARY KEY, FirstName  VARCHAR(50),  LastName VARCHAR(50),  Age Number(3), Department VARCHAR(50));
+---------------Table created.
+-----------Insert Data into Table
+SQL> INSERT INTO Employees (EmployeeID, FirstName, LastName, Age, Department)VALUES	(1, 'John', 'Doe', 30, 'HR');
+
+------------1 row created.
+
+SQL> INSERT INTO Employees (EmployeeID, FirstName, LastName, Age, Department)VALUES	(2, 'Jane', 'Smith', 28, 'IT');
+
+---------------1 row created.
+
+SQL> INSERT INTO Employees (EmployeeID, FirstName, LastName, Age, Department)VALUES	(3, 'Bob', 'Johnson', 35, 'Finance');
+
+----------------1 row created.
+
+SQL> SELECT * FROM Employees; 
+------------------
+OUTPUT:
+EmployeeID	FirstName	LastName	Age	Department
+1	John	Doe	30	HR
+2	Jane	Smith	28	IT
+3	Bob	Johnson	35	Finance
+
+----------------Table Alter
+SQL> ALTER TABLE Employees	ADD Email VARCHAR(100);
+-------------Table altered.
+ 
+SQL> SELECT * FROM Employees;
+---------------------
+EmployeeID	FirstName	LastName	Age	Department	Email
+1	John	Doe	30	HR	
+2	Jane	Smith	28	IT	
+3	Bob	Johnson	35	Finance	
+
+
+
+---TRUNCATE TABLE
+SQL> TRUNCATE TABLE Employees;
+----------Table truncated.
+
+SQL> SELECT * FROM Employees; no rows selected
+
+---------- DROP TABLE
+SQL> DROP TABLE Employees; Table dropped.
