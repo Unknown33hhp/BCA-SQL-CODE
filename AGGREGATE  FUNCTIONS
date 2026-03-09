@@ -1,0 +1,84 @@
+PROGRAM:
+
+--------------------------------- CREATE TABLE
+SQL> CREATE TABLE Sales (SaleID Number (15) PRIMARY KEY,ProductName
+VARCHAR(50),Quantity INT,Price DECIMAL(8, 2));
+-------------------------------------
+Table created.
+
+--------------------------- INSERT INTO
+SQL> INSERT INTO Sales (SaleID, ProductName, Quantity, Price)  VALUES(1, 'Laptop', 2, 1200.00);
+
+------------------------------1 row created.
+
+SQL> INSERT INTO Sales (SaleID, ProductName, Quantity, Price) VALUES(2, 'Smartphone', 3, 800.00);
+
+-----------------------1 row created.
+
+SQL> INSERT INTO Sales (SaleID, ProductName, Quantity, Price) VALUES	(3, 'Desk Chair', 1, 150.00);
+
+-----------------1 row created.
+
+SQL> INSERT INTO Sales (SaleID, ProductName, Quantity, Price)  VALUES(4, 'Coffee Table', 2, 200.00);
+
+--------------------1 row created.
+
+SQL> INSERT INTO Sales (SaleID, ProductName, Quantity, Price) VALUES(5, 'Running Shoes', 5, 80.00);
+
+------------------1 row created.
+
+SQL> Select * from Sales;
+-------------------------
+SALEID	PRODUCTNAME	QUANTITY	PRICE
+1	Laptop	2	1200
+2	Smartphone	3	800
+3	Desk Chair	1	150
+4	Coffee Table	2	200
+5	Running Shoes	5	80
+ 
+--------------- SELECT with COUNT
+SQL> SELECT COUNT(*) AS TotalSales FROM Sales;
+----------------------
+TOTALSALES
+
+5
+
+
+--------------- SELECT with SUM
+SQL> SELECT SUM(Quantity) AS TotalQuantity, SUM(Price) AS TotalRevenue FROM Sales;
+----------------------------
+TOTALQUANTITY TOTALREVENUE
+
+13	2430
+
+
+--------------------- SELECT with AVG
+SQL> SELECT AVG(Price) AS AveragePrice FROM Sales;
+--------------
+AVERAGEPRICE
+486
+------------------
+
+------------ SELECT with MIN
+SQL> SELECT MIN(Price) AS MinPrice FROM Sales;
+------------
+MINPRICE
+
+80
+
+
+------------ SELECT with MAX
+SQL> SELECT MAX(Price) AS MaxPrice FROM Sales;
+-------------------
+MAXPRICE
+
+1200
+----------------
+
+
+
+
+
+Result:
+	Aggregate functions are executed successfully.
+  
