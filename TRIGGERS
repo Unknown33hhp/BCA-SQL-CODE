@@ -1,0 +1,42 @@
+PROGRAM:
+
+Creating a Trigger:
+Set serveroutput on;
+CREATE OR REPLACE TRIGGER display_salary_changes 
+BEFORE DELETE OR INSERT OR UPDATE ON customers 
+FOR EACH ROW 
+WHEN (NEW.ID > 0) 
+DECLARE 
+ sal_diff number; 
+BEGIN 
+ sal_diff := :NEW.salary - :OLD.salary; 
+ dbms_output.put_line('Old salary: ' || :OLD.salary); 
+ dbms_output.put_line('New salary: ' || :NEW.salary); 
+ dbms_output.put_line('Salary difference: ' || sal_diff); 
+END; 
+/
+
+Output:
+Trigger created.
+
+Triggering a Trigger
+
+INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY) 
+VALUES (7, 'Kriti', 22, 'HP', 7500.00 );
+
+Output:
+Old salary: 
+New salary: 7500 
+Salary difference:
+
+UPDATE customers 
+SET salary = salary + 500 
+WHERE id = 2;
+
+Output:
+Old salary: 1500 
+New salary: 2000 
+Salary difference: 50 
+
+Result: 
+	Triggers were successfully executed
