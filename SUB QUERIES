@@ -1,0 +1,64 @@
+PROGRAM
+
+--------------------------------------- CREATE TABLES
+SQL> CREATE TABLE Countries (CountryID Number(15)  PRIMARY KEY, CountryName VARCHAR(50) );
+
+SQL> CREATE TABLE CITIES (CityID Number(15) PRIMARY KEY, CityName VARCHAR(50),CountryID Number(15), Population Number(15), FOREIGN KEY (CountryID) REFERENCES  Countries(CountryID) );
+
+----------------- INSERT DATA into Countries table
+SQL> INSERT INTO Countries (CountryID, CountryName) VALUES (1, 'United States');
+
+----------------------1 row created.
+
+SQL> INSERT INTO Countries (CountryID, CountryName) VALUES (2, 'United Kingdom');
+
+--------------------1 row created.
+
+SQL> INSERT INTO Countries (CountryID, CountryName) VALUES (3, 'India'); 1 row created.
+--------------------- INSERT DATA into Cities table
+
+SQL> INSERT INTO Cities (CityID, CityName, CountryID, Population) VALUES (101, 'New York', 1, 8500000);
+
+----------------------------------------1 row created.
+
+SQL> INSERT INTO Cities (CityID, CityName, CountryID, Population) VALUES (102, 'London', 2, 8200000);
+
+-------------------------------1 row created.
+
+SQL> INSERT INTO Cities (CityID, CityName, CountryID, Population) VALUES (103, 'Mumbai', 3, 12400000);
+
+----------------1 row created.
+ 
+SQL> INSERT INTO Cities (CityID, CityName, CountryID, Population) VALUES (104, 'Los Angeles', 1, 3980000);
+-----------------------1 row created.
+
+SQL> INSERT INTO Cities (CityID, CityName, CountryID, Population) VALUES (105, 'Delhi', 3, 28700000);
+
+---------------------------------------1 row created.
+
+SQL> INSERT INTO Cities (CityID, CityName, CountryID, Population) VALUES (106, 'Manchester', 2, 550000);
+
+---------------------------------------------1 row created.
+SQL> select * from Countries;
+-----------------------------------------------
+COUNTRYID	COUNTRYNAME
+
+1	United States
+2	United Kingdom
+3	India
+-----------------------------------------------------
+SQL> select * from Cities;
+----------------------------------------------------------------------
+CITYID	CITYNAME	COUNTRYID	POPULATION
+101	New York	1	8500000
+102	London	2	8200000
+103	Mumbai	3	12400000
+104	Los Angeles	1	3980000
+105	Delhi	3	28700000
+106	Manchester	2	550000
+ 
+-------------------------------- SUBQUERY TO GET COUNTRIES WITH POPULATION GREATER THAN
+
+
+SQL> SELECT CountryName	2 FROM Countries 3 WHERE CountryID IN ( SELECT CountryID	FROM Cities	WHERE Population > (SELECT AVG(Population) FROM Cities) );
+
