@@ -1,0 +1,49 @@
+PROGRAM:
+
+SQL> CREATE TABLE Students (StudentID Number(15) PRIMARY KEY, FirstName VARCHAR(50), LastName VARCHAR(50), Age INT, GPA DECIMAL(3, 2));
+
+--------------------Table created.
+
+------------------------- INSERT DATA
+SQL> INSERT INTO Students (StudentID, FirstName, LastName, Age, GPA) VALUES(1, 'John', 'Doe', 20, 3.5);
+
+--------------------1 row created.
+
+SQL> INSERT INTO Students (StudentID, FirstName, LastName, Age, GPA)  VALUES(2, 'Jane', 'Smith', 22, 3.9);
+
+-----------------------------1 row created. 
+
+SQL> INSERT INTO Students (StudentID, FirstName, LastName, Age, GPA)     VALUES(3, 'Bob', 'Johnson', 21, 3.2);
+
+-----------------------------1 row created.
+
+
+SQL> SELECT * FROM Students;
+--------------
+STUDENTID	FIRSTNAME	LASTNAME	AGE	GPA
+ 	-	-	-
+1	John	Doe	20	3.5
+2	Jane	Smith	22	3.9
+3	Bob	Johnson	21	3.2
+
+-----
+-------------------COMMAND:GRANT
+SQL>GRANT SELECT ON employees TO username;
+
+------------------INPUT:
+SELECT * FROM employees;
+ 
+
+
+-----------------------OUTPUT:
+employee_id | employee_name | salary
+ 	+-	-+ 	
+1	| John Doe	| 50000.00
+2	| Jane Smith	| 60000.00
+3	| Bob Johnson	| 75000.00
+
+
+----------------COMMAND:REVOKE
+REVOKE SELECT ON employees FROM username;
+
+
