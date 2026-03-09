@@ -1,0 +1,80 @@
+PROGRAM:
+-----------------Create Table
+
+SQL> CREATE TABLE Students (StudentID Number(5)  PRIMARY KEY,FirstName VARCHAR(50),	LastName VARCHAR(50),	Age Number(3),Grade VARCHAR(2) );
+
+--------------Table created.
+
+-------------Insert Data into Table
+SQL> INSERT INTO Students (StudentID, FirstName, LastName, Age, Grade) VALUES(1, 'Alice', 'Johnson', 20, 'A') ;
+
+----------------1 row created.
+
+SQL> INSERT INTO Students (StudentID, FirstName, LastName, Age, Grade)VALUES(2, 'Bob', 'Smith', 22, 'B');
+
+--------------------1 row created.
+
+SQL> INSERT INTO Students (StudentID, FirstName, LastName, Age, Grade) values (3, 'Charlie', 'Brown', 21, 'C');
+
+------------------1 row created.
+
+SQL> SELECT * FROM Students;
+---------------
+STUDENTID	FIRSTNAME	LASTNAME	AGE	GR
+1	Alice	Johnson	20	A
+2	Bob	Smith	22	B
+3	Charlie	Brown	21	C
+
+---------------Update Table 
+SQL> UPDATE Students SET Grade = 'A' WHERE  StudentID = 2;
+
+-------------------1 row updated.
+ 
+SQL> SELECT * FROM Students;
+
+--------------------------------------------------------------
+STUDENTID	FIRSTNAME	LASTNAME	AGE	GR
+1	Alice	Johnson	20	A
+2	Bob	Smith	22	A
+3	Charlie	Brown	21	C
+
+
+----------------------- INSERT INTO (additional record)
+SQL> INSERT INTO Students (StudentID, FirstName, LastName, Age, Grade) VALUE(4, 'David', 'Williams', 23, 'B');
+
+----------------1 row created.
+
+--------------------- SELECT to view the new data
+SQL> SELECT * FROM Students;
+
+
+---------------------------------------------------------------------
+STUDENTID	FIRSTNAME	LASTNAME	AGE	GR
+1	Alice	Johnson	20	A
+2	Bob	Smith	22	A
+3	Charlie	Brown	21	C
+4	David	Williams	23	B
+
+---------------------------- DELETE
+SQL> DELETE FROM Students  WHERE StudentID = 3;
+
+---------------------1 row deleted.
+
+SQL> SELECT * FROM Students;
+---------------------------------------------
+STUDENTID	FIRSTNAME	LASTNAME	AGE	GR
+1	Alice	Johnson	20	A
+2	Bob	Smith	22	A
+4	David	Williams	23	B
+ 
+-----------------------------------------------
+SQL> UPDATE StudentsSET AGE = 25  WHERE StudentID = 1;
+
+---------------------------------------1 row updated.
+
+SQL> SELECT * FROM Students;
+--------------------------------------------------------------------------
+STUDENTID	FIRSTNAME	LASTNAME	AGE	GR
+1	Alice	Johnson	25	A
+2	Bob	Smith	22	A
+4	David	Williams	23	B
