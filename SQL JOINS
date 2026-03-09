@@ -1,0 +1,100 @@
+PROGRAM:
+
+--Table Create
+SQL> CREATE TABLE States (StateID Number(15)  PRIMARY KEY, StateName      VARCHAR(50) );
+
+-------------Table created.
+
+SQL> CREATE TABLE Cities (CityID Number(15)  PRIMARY KEY, CityName VARCHAR(50),  StateID Number(15), FOREIGN KEY (StateID) REFERENCES
+States(StateID)); Table created.
+----------- INSERT DATA into States table
+SQL> INSERT INTO States (StateID, StateName) VALUES	(1, 'Maharashtra'); 
+--------------1 row created.
+SQL> INSERT INTO States (StateID, StateName) VALUES	(2, 'Gujarat'); 
+-------------1 row created.
+SQL> INSERT INTO States (StateID, StateName) VALUES	(3, 'Tamil Nadu');
+--------------1 row created.
+-------------- INSERT DATA into Cities table
+
+SQL> INSERT INTO Cities (CityID, CityName, StateID) VALUES	(101, 'Mumbai', 1); 
+-------------------1 row created.
+SQL> INSERT INTO Cities (CityID, CityName, StateID) VALUES	(102, 'Pune', 1); -
+-----------------1 row created.
+SQL> INSERT INTO Cities (CityID, CityName, StateID) VALUES (103, 'Ahmedabad', 2); 
+--------------------1 row created.
+SQL> INSERT INTO Cities (CityID, CityName, StateID) VALUES	(104, 'Surat', 2);
+-----------------------------1 row created.
+ 
+SQL> INSERT INTO Cities (CityID, CityName, StateID) VALUES (105, 'Chennai', 3);
+-------------------1 row created.
+
+
+SQL> INSERT INTO Cities (CityID, CityName, StateID) VALUES (106, 'Coimbatore', 3); 1 row created.
+---------------- INNER JOIN
+SQL> SELECT Cities.CityName, States.StateName FROM Cities INNER JOIN States ON Cities.StateID = States.StateID;
+--------------------------------------------------
+CITYNAME	STATENAME
+ 	-		- Mumbai		Maharashtra
+
+Pune	Maharashtra
+
+Ahmedabad	Gujarat
+
+Surat	Gujarat
+
+Chennai	Tamil Nadu
+
+Coimbatore	Tamil Nadu 6 rows selected.
+------------------------------------------------------ LEFT JOIN
+SQL> SELECT Cities.CityName, States.StateName FROM Cities LEFT JOIN States ON Cities.StateID = States.StateID;
+-----------------------------------------------------------------
+CITYNAME	STATENAME
+ 	-	 	 Mumbai		Maharashtra
+
+Pune	Maharashtra
+
+Ahmedabad	Gujarat
+
+Surat	Gujarat
+
+Chennai	Tamil Nadu
+
+Coimbatore	Tamil Nadu 6 rows selected.
+ 
+----------------------------------------------------- RIGHT JOIN
+SQL> SELECT Cities.CityName, States.StateName	FROM Cities RIGHT JOIN States ON Cities.StateID = States.StateID;
+-------------------------------------------------------
+CITYNAME	STATENAME
+
+Mumbai	Maharashtra
+
+Pune	Maharashtra
+
+Ahmedabad	Gujarat
+
+Surat	Gujarat
+
+Chennai	Tamil Nadu
+
+Coimbatore	Tamil Nadu 6 rows selected.
+
+---- FULL OUTER JOIN (Not supported in all databases) 
+SQL> SELECT Cities.CityName, States.StateName 2 FROM Cities 3 FULL OUTER JOIN States ON Cities.StateID = States.StateID;
+--------------------------------------
+CITYNAME	STATENAME
+ 	-
+Mumbai	Maharashtra
+
+Pune	Maharashtra
+
+Ahmedabad	Gujarat
+
+Surat	Gujarat
+
+Chennai	Tamil Nadu
+
+Coimbatore	Tamil Nadu 6 rows selected.
+
+-------------
+Result: 
+SQL Joins were executed successfully
