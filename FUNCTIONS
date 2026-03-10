@@ -45,7 +45,7 @@ Bob	Johnson	75000.25	Medium
 Sam	John	90000.25	High
 			
 User Defined functions:
-
+SET SERVEROUTPUT ON;
 DECLARE 
    a number; 
    b number; 
