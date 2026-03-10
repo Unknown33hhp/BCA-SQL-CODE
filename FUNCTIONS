@@ -3,29 +3,30 @@ PROGRAM:
 -- CREATE TABLE
 SQL>	CREATE TABLE Employees ( EmployeeID Number(15)  PRIMARY KEY, FirstName VARCHAR(50),	LastName VARCHAR(50),	Salary DECIMAL(10, 2));
 
--------------Table created.
+Table created.
 
 -- INSERT INTO
-SQL> INSERT INTO Employees (EmployeeID, FirstName, LastName, Salary) VALUES(1, 'John', 'Doe', 50000.50);
+SQL> INSERT INTO Employees (EmployeeID, FirstName, LastName, Salary)
+VALUES(1, 'John', 'Doe', 50000.50);
 
--------------1 row created.
+1 row created.
 
 SQL> INSERT INTO Employees (EmployeeID, FirstName, LastName, Salary) VALUES(2, 'Jane', 'Smith', 60000.75);
 
----------------1 row created.
+1 row created.
 
 SQL> INSERT INTO Employees (EmployeeID, FirstName, LastName, Salary)VALUES(3, 'Bob', 'Johnson', 75000.25);
 
-----------------------1 row created.
+1 row created.
 
 SQL> INSERT INTO Employees (EmployeeID, FirstName, LastName, Salary)  VALUES(4, 'Sam', 'John', 90000.25);
 
--------------------1 row created.
+1 row created.
 
 
 -- SELECT with mathematical functions
 SQL> SELECT	ROUND(Salary, 1) AS RoundedSalary, ABS(Salary) AS AbsoluteSalary FROM Employees;
---------------------------------------------
+
 ROUNDEDSALARY	ABSOLUTESALARY
 
 50000.5	50000.5
@@ -35,7 +36,7 @@ ROUNDEDSALARY	ABSOLUTESALARY
  
 -- SELECT with custom function using CASE
 SQL> SELECT  FirstName,  LastName,  Salary, CASE WHEN Salary < 60000 THEN 'Low'  WHEN Salary >= 60000 AND Salary < 80000  THEN 'Medium'   ELSE 'High'  END AS SalaryCategory FROM Employees;
-------------------------
+
 FIRSTNAME	LASTNAME	SALARY	SALARY
 -------------------	--------------------- ----------	------
 John	Doe	50000.5	Low
@@ -43,7 +44,7 @@ Jane	Smith	60000.75	Medium
 Bob	Johnson	75000.25	Medium
 Sam	John	90000.25	High
 			
---------User Defined functions:
+User Defined functions:
 
 DECLARE 
    a number; 
