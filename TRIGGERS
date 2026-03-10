@@ -1,3 +1,4 @@
+Create table customers(ID Number(5) ,NAME varchar(15),AGE Number(5),ADDRESS varchar(25),SALARY Number(5)
 PROGRAM:
 
 Creating a Trigger:
@@ -39,4 +40,4 @@ New salary: 2000
 Salary difference: 50 
 
 Result: 
-	Triggers were successfully executed
+	Triggers were successfully executed.
