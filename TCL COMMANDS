@@ -1,25 +1,28 @@
+7.	TCL COMMANDS
+
 PROGRAM:
-------------------------------Create TABLE:
+--Create TABLE:
 SQL>CREATE TABLE products (product_id Number(15) PRIMARY KEY,product_name VARCHAR(50),price DECIMAL(8, 2));
----------------------------
+
 SQL> BEGIN;
 
---------------------------------------------------INSERT VALUE:
+--INSERT VALUE:
 SQL>INSERT INTO products (product_id, product_name, price) VALUES (1, 'Laptop', 1200.00);
 
--------------------------------1 row created.
+1 row created.
 
 SQL>INSERT INTO products (product_id, product_name, price) VALUES(2,'Smartphone', 500.00);
 
-----------------------------------1 row created.
+1 row created.
 
-SQL>INSERT INTO products (product_id, product_name, price) VALUES (3,'Headphones', 80.00);
+SQL>INSERT INTO products (product_id, product_name, price) VALUES (3,
+'Headphones', 80.00);
 
-----------------------------1 row created.
+1 row created.
 
---------INPUT:
+INPUT:
 SQL> SELECT * FROM products; SQL> COMMIT;
-------------OUTPUT:
+OUTPUT:
 
 product_id	product_name	price
 1	Laptop	1200
@@ -30,3 +33,14 @@ product_id	product_name	price
 
 
 
+
+
+
+
+
+
+
+
+
+Result: 
+ 	TCL commands are executed successfully.
