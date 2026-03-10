@@ -70,7 +70,7 @@ Chennai	Tamil Nadu
 
 Coimbatore	Tamil Nadu 6 rows selected.
 
--- FULL OUTER JOIN (Not supported in all databases) SQL> SELECT Cities.CityName, States.StateName 2 FROM Cities 3 FULL OUTER JOIN States ON Cities.StateID = States.StateID;
+-- FULL OUTER JOIN (Not supported in all databases) SQL> SELECT Cities.CityName, States.StateName  FROM Cities  FULL OUTER JOIN States ON Cities.StateID = States.StateID;
 
 CITYNAME	STATENAME
  	-
